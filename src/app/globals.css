@@ -120,3 +120,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom Background Pattern Utilities */
+@layer utilities {
+  .bg-gradient-home {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #3b82f6 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, #6366f1 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .bg-gradient-features {
+    background-image: 
+      radial-gradient(circle at 75% 25%, #3b82f6 1px, transparent 1px),
+      radial-gradient(circle at 25% 75%, #6366f1 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}

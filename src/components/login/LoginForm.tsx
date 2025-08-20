@@ -18,17 +18,17 @@ export function LoginForm() {
   };
 
   return (
-    <Card className="mx-auto w-full max-w-sm border border-slate-700 bg-slate-900 text-slate-50 shadow-lg">
-      <CardHeader>
-        <CardTitle className="text-2xl text-center">Iniciar Sesión</CardTitle>
-        <CardDescription className="text-slate-400 text-center">
+    <Card className="mx-auto w-full max-w-sm border border-slate-700/50 bg-slate-800/80 backdrop-blur-sm text-slate-50 shadow-2xl hover:shadow-3xl transition-all duration-300">
+      <CardHeader className="text-center space-y-2">
+        <CardTitle className="text-2xl font-bold text-white">Iniciar Sesión</CardTitle>
+        <CardDescription className="text-slate-300">
           Ingresa tu correo y contraseña para acceder a tu cuenta.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="grid gap-4">
+        <form onSubmit={handleSubmit} className="grid gap-6">
           <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-slate-200 font-medium">Email</Label>
             <Input
               id="email"
               type="email"
@@ -36,33 +36,48 @@ export function LoginForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border-slate-700 bg-slate-950 text-slate-100 focus:border-blue-500"
+              className="border-slate-600 bg-slate-700/50 text-slate-100 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300"
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="password">Contraseña</Label>
+            <Label htmlFor="password" className="text-slate-200 font-medium">Contraseña</Label>
             <Input
               id="password"
               type="password"
+              placeholder="••••••••"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="border-slate-700 bg-slate-950 text-slate-50 focus:border-blue-500"
+              className="border-slate-600 bg-slate-700/50 text-slate-50 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300"
             />
           </div>
-          <div className="w-full flex items-left justify-center">
-            <Button type="button" variant="link" className="text-sm text-blue-500 hover:underline">
+          
+          <div className="w-full flex justify-center">
+            <Button 
+              type="button" 
+              variant="link" 
+              className="text-sm text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-300"
+            >
               ¿Olvidaste tu contraseña?
             </Button>
           </div>
-          <div className="flex w-60 items-center justify-between gap-4">
-            <Button type="submit" className="w-40 bg-slate-50 text-slate-950 hover:bg-slate-200">
-                Ingresar
+          
+          <div className="flex flex-col gap-3">
+            <Button 
+              type="submit" 
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-2.5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              Ingresar
             </Button>
-            <Link href="/" className="w-40 text-center text-slate-50 hover:text-blue-500">
-                <Button type="button" className="w-40 bg-slate-50 text-slate-950 hover:bg-slate-200">
-                    Regresar
-                </Button>
+            
+            <Link href="/" className="w-full">
+              <Button 
+                type="button" 
+                variant="outline"
+                className="w-full border-slate-600 bg-slate-700/50 text-slate-200 hover:bg-slate-600 hover:text-white transition-all duration-300"
+              >
+                Regresar
+              </Button>
             </Link>
           </div>
         </form>

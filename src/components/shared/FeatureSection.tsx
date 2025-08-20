@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ChartBarSquareIcon,
   ReceiptPercentIcon,
@@ -42,21 +44,36 @@ const features = [
 
 export function FeatureSection() {
   return (
-    <section id="features" className="py-16 text-center text-slate-950 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+    <section id="features" className="relative py-16 text-center text-white md:py-24 overflow-hidden">
+      {/* Inverted Background Pattern to continue HomePage gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800"></div>
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-features"></div>
+      </div>
+      
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
           Funcionalidades que impulsan tu negocio
         </h2>
-        <p className="mt-4 text-lg text-slate-600">
-          Descubre cómo **GestorPro** te ayuda a simplificar cada aspecto de la gestión empresarial.
+        <p className="mt-4 text-lg text-slate-300">
+          Descubre cómo <span className="font-semibold text-blue-400">GestorPro</span> te ayuda a simplificar cada aspecto de la gestión empresarial.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
-            <div key={feature.name} className="space-y-4 rounded-lg bg-gray-50 p-6 shadow-md transition-transform duration-300 hover:scale-105">
-              <feature.icon className="mx-auto h-12 w-12 text-slate-950" />
-              <h3 className="text-xl font-semibold">{feature.name}</h3>
-              <p className="text-slate-600">{feature.description}</p>
+            <div 
+              key={feature.name} 
+              className="group space-y-4 rounded-xl bg-slate-700/50 backdrop-blur-sm p-6 border border-slate-600 shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-700/70 hover:border-blue-500/50 hover:shadow-2xl"
+            >
+              <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center transition-all duration-300 group-hover:from-blue-400 group-hover:to-indigo-400 group-hover:shadow-lg">
+                <feature.icon className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+                {feature.name}
+              </h3>
+              <p className="text-slate-300 group-hover:text-slate-200 transition-colors duration-300">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>
