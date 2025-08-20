@@ -6,10 +6,113 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  TRABAJADOR
+}
+
+enum EstadoTareas {
+  PENDIENTE
+  EN_PROCESO
+  COMPLETADA
+}
+
+enum EstadoFacturas {
+  PENDIENTE
+  EN_PROCESO
+  PAGADO
+  ARCHIVADO
+}
+
+model Usuario {
+  id                    String               @id @default(cuid())
+  name                  String
+  correo                String               @unique
+  password              String
+  contacto              String
+  activo                Boolean              @default(true)
+  role                  Role                 @default(TRABAJADOR)
+  tareaAsignada         Tarea[]
+  asigFacturaCliente    FacturaCliente[]
+  asigFacturaProveedor  FacturaProveedor[]
+
+  @@map("usuarios")
+  @@index([correo])
+}
+
+model Cliente {
+  id                    String                @id @default(cuid())
+  name                  String
+  correo                String                @unique
+  direccion             String?
+  contacto              String?
+  factura               FacturaCliente[]
+
+  @@map("clientes")
+}
+
+model Proveedor {
+  id                    String                @id @default(cuid())
+  name                  String
+  correo                String                @unique
+  direccion             String?
+  contacto              String?
+  factura               FacturaProveedor[]
+
+  @@map("proveedores")
+}
+
+model Tarea {
+  id                    String                @id @default(cuid())
+  titulo                String
+  descripcion           String
+  estado                EstadoTareas
+  fechaLimite           DateTime?
+  asignadoAId           String
+  asignadoA             Usuario               @relation(fields: [asignadoAId], references: [id])
+
+  @@map("tareas")
+  @@index([asignadoAId])
+  @@index([estado])
+}
+
+model FacturaCliente {
+  id                    String                @id @default(cuid())
+  numFactura            String                @unique
+  fechaCreacion         DateTime              @default(now())
+  fechaVencimiento      DateTime
+  estado                EstadoFacturas
+  clienteId             String
+  client                Cliente               @relation(fields: [clienteId], references: [id])
+  asignadoAId           String
+  asignadoA             Usuario               @relation(fields: [asignadoAId], references: [id])
+
+  @@map("facturas_clientes")
+  @@index([clienteId])
+  @@index([asignadoAId])
+  @@index([estado])  
+}
+
+model FacturaProveedor {
+  id                    String                @id @default(cuid())
+  numFactura            String                @unique
+  fechaCreacion         DateTime              @default(now())
+  fechaVencimiento      DateTime
+  estado                EstadoFacturas
+  proveedorId           String
+  proveedor             Proveedor             @relation(fields: [proveedorId], references: [id])
+  asignadoAId           String
+  asignadoA             Usuario               @relation(fields: [asignadoAId], references: [id])
+
+  @@map("facturas_proveedores")
+  @@index([proveedorId])
+  @@index([asignadoAId])
+  @@index([estado])
 }

@@ -2,6 +2,9 @@
   "name": "gestion-pro",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -10,7 +13,14 @@
     "init-tailwind": "tailwindcss init -p",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prisma:generate": "pnpm prisma generate",
+    "prisma:studio": "pnpm prisma studio",
+    "prisma:migrate:dev": "pnpm prisma migrate dev",
+    "prisma:migrate:deploy": "pnpm prisma migrate deploy",
+    "prisma:db:push": "pnpm prisma db push",
+    "prisma:db:seed": "pnpm prisma db seed",
+    "postinstall": "pnpm prisma generate"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
@@ -60,16 +70,19 @@
     "prettier": "^3.6.2",
     "prisma": "^6.14.0",
     "tailwindcss": "~4.1.12",
+    "tsx": "^4.20.4",
     "tw-animate-css": "^1.3.7",
     "typescript": "^5",
     "vitest": "^3.2.4"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@prisma/client",
+      "@heroui/shared-utils",
+      "@parcel/watcher",
+      "@prisma/engines",
       "@tailwindcss/oxide",
       "argon2",
-      "esbuild",
+      "prisma",
       "sharp",
       "unrs-resolver"
     ]
