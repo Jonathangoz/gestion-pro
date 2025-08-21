@@ -20,7 +20,7 @@
 // test('submits the form when fields are filled and button is clicked', async () => {
 //   // Para este ejemplo, simulamos una función de envío del formulario
 //   const mockSubmit = vitest.fn();
-  
+
 //   render(<LoginForm onSubmit={mockSubmit} />);
 //   const user = userEvent.setup();
 
@@ -37,8 +37,6 @@
 //   // Aserción: Comprobar que la función de envío fue llamada
 //   expect(mockSubmit).toHaveBeenCalledTimes(1);
 // });
-
-
 
 /* 
 render: Renderiza el componente en un entorno virtual.

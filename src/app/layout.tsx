@@ -1,12 +1,13 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'GestorPro - El software de gestión definitivo para tu negocio',
-  description: 'Administra facturas, tareas, reportes y personal de manera eficiente con GestorPro. Ideal para administradores y trabajadores.',
+  title: "GestorPro - El software de gestión definitivo para tu negocio",
+  description:
+    "Administra facturas, tareas, reportes y personal de manera eficiente con GestorPro. Ideal para administradores y trabajadores.",
   keywords: [
     "gestión empresarial",
     "gestion de proyectos",
@@ -16,28 +17,29 @@ export const metadata: Metadata = {
     "tareas",
     "reportes",
     "administración de personal",
-    "productividad", "negocios",
-    "herramientas para empresas"
+    "productividad",
+    "negocios",
+    "herramientas para empresas",
   ],
-  authors: [{ name: 'GestorPro', url: 'https://gestorpro.com' }],
-  creator: 'GestorPro',
+  authors: [{ name: "GestorPro", url: "https://gestorpro.com" }],
+  creator: "GestorPro",
   openGraph: {
-    title: 'GestorPro - El software de gestión definitivo para tu negocio',
-    description: 'Simplifica la gestión de tu negocio.',
-    url: 'https://gestorpro.com',
-    siteName: 'GestorPro',
+    title: "GestorPro - El software de gestión definitivo para tu negocio",
+    description: "Simplifica la gestión de tu negocio.",
+    url: "https://gestorpro.com",
+    siteName: "GestorPro",
     images: [
       {
-        url: 'https://gestorpro.com/og-image.jpg',
+        url: "https://gestorpro.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'GestorPro',
+        alt: "GestorPro",
       },
     ],
-    locale: 'es_ES',
-    type: 'website',
+    locale: "es_ES",
+    type: "website",
   },
-}
+};
 
 export default function RootLayout({
   children,
