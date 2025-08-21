@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { BriefcaseIcon } from "@heroicons/react/24/solid";
+import Link from 'next/link';
+import { BriefcaseIcon } from '@heroicons/react/24/solid';
 
 export function Footer() {
   return (
@@ -80,7 +80,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-slate-700/50 pt-8 text-center text-sm">
           <p className="text-slate-400">
-            &copy; {new Date().getFullYear()}{" "}
+            &copy; {new Date().getFullYear()}{' '}
             <span className="font-semibold text-blue-400">GestorPro</span>.
             Todos los derechos reservados.
           </p>

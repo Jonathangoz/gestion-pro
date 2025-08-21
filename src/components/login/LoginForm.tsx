@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 export function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Lógica de autenticación aquí
-    console.log("Email:", email, "Password:", password);
+    console.log('Email:', email, 'Password:', password);
   };
 
   return (
@@ -45,7 +45,7 @@ export function LoginForm() {
               placeholder="mario@gestorpro.com"
               required
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="border-slate-600 bg-slate-700/50 text-slate-100 transition-all duration-300 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20"
             />
           </div>
@@ -59,7 +59,7 @@ export function LoginForm() {
               placeholder="••••••••"
               required
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="border-slate-600 bg-slate-700/50 text-slate-50 transition-all duration-300 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20"
             />
           </div>

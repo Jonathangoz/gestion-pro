@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { FeatureSection } from "@/components/shared/FeatureSection";
-import { Footer } from "@/components/shared/Footer";
-import { Header } from "@/components/shared/Header";
+import { Button } from '@/components/ui/button';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { FeatureSection } from '@/components/shared/FeatureSection';
+import { Footer } from '@/components/shared/Footer';
+import { Header } from '@/components/shared/Header';
+import { ContactSection } from '@/components/shared/Contact';
 
 export default function HomePage() {
   return (
@@ -35,10 +36,10 @@ export default function HomePage() {
             </h1>
 
             <h2 className="mx-auto max-w-3xl text-xl leading-relaxed font-medium text-slate-300 sm:text-2xl md:text-3xl">
-              La solución definitiva para la{" "}
+              La solución definitiva para la{' '}
               <span className="font-semibold text-blue-400">
                 gestión integral
-              </span>{" "}
+              </span>{' '}
               de tu empresa.
             </h2>
 
@@ -46,7 +47,7 @@ export default function HomePage() {
               Simplifica la administración, facturación y tareas de tu negocio
               con nuestra plataforma
               <span className="font-semibold text-indigo-400">
-                {" "}
+                {' '}
                 intuitiva y poderosa
               </span>
               , diseñada para hacer crecer tu empresa.
@@ -106,6 +107,7 @@ export default function HomePage() {
         </section>
 
         <FeatureSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BriefcaseIcon } from '@heroicons/react/24/solid';
 
-export function Header() {
+export function HeaderPrice() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-700/50 bg-slate-900/70 shadow-lg backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -24,10 +24,10 @@ export function Header() {
         {/* Enlaces de navegación */}
         <nav className="hidden space-x-6 md:flex">
           <Link
-            href="#features"
+            href="/"
             className="pb-1 text-slate-300 transition-all duration-300 hover:border-b-2 hover:border-blue-400 hover:text-white"
           >
-            Características
+            Home
           </Link>
           <Link
             href="/suscription"

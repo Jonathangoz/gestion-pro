@@ -1,5 +1,5 @@
 // src/lib/hash.ts
-import { hash, verify, argon2id, type Options } from "argon2";
+import { hash, verify, argon2id, type Options } from 'argon2';
 
 /**
  * Configuración de Argon2id basada en las recomendaciones oficiales de OWASP 2025
@@ -45,12 +45,12 @@ function getArgonOptions(): Options {
   const env = process.env.NODE_ENV;
 
   switch (env) {
-    case "development":
-    case "test":
+    case 'development':
+    case 'test':
       return DEVELOPMENT_OPTIONS;
-    case "production":
+    case 'production':
       // Opcional: usar configuración de alta seguridad en producción
-      return process.env.ARGON2_HIGH_SECURITY === "true"
+      return process.env.ARGON2_HIGH_SECURITY === 'true'
         ? HIGH_SECURITY_OPTIONS
         : PRODUCTION_OPTIONS;
     default:
@@ -73,36 +73,36 @@ function getArgonOptions(): Options {
  */
 export async function hashPassword(password: string): Promise<string> {
   // Validaciones de entrada
-  if (!password || typeof password !== "string") {
-    throw new Error("Password debe ser una cadena no vacía");
+  if (!password || typeof password !== 'string') {
+    throw new Error('Password debe ser una cadena no vacía');
   }
 
   if (password.length < 8) {
-    throw new Error("Password debe tener al menos 8 caracteres");
+    throw new Error('Password debe tener al menos 8 caracteres');
   }
 
   if (password.length > 128) {
-    throw new Error("Password no puede exceder 128 caracteres");
+    throw new Error('Password no puede exceder 128 caracteres');
   }
 
   try {
     const options = getArgonOptions();
 
     // Log para debugging (solo en desarrollo)
-    if (process.env.NODE_ENV === "development") {
-      console.log("Argon2 options:", {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Argon2 options:', {
         memoryCost: `${options.memoryCost} KB (${Math.round(options.memoryCost! / 1024)} MiB)`,
         timeCost: options.timeCost,
         parallelism: options.parallelism,
-        type: "argon2id",
+        type: 'argon2id',
       });
     }
 
     return await hash(password, options);
   } catch (error) {
     // Log del error real para debugging (no exponer al cliente)
-    console.error("Error en hashPassword:", error);
-    throw new Error("Error interno al procesar la contraseña");
+    console.error('Error en hashPassword:', error);
+    throw new Error('Error interno al procesar la contraseña');
   }
 }
 
@@ -123,19 +123,19 @@ export async function hashPassword(password: string): Promise<string> {
  */
 export async function verifyPassword(
   password: string,
-  hashedPassword: string
+  hashedPassword: string,
 ): Promise<boolean> {
   // Validaciones de entrada
-  if (!password || typeof password !== "string") {
+  if (!password || typeof password !== 'string') {
     return false;
   }
 
-  if (!hashedPassword || typeof hashedPassword !== "string") {
+  if (!hashedPassword || typeof hashedPassword !== 'string') {
     return false;
   }
 
   // Verificar formato básico del hash Argon2
-  if (!hashedPassword.startsWith("$argon2")) {
+  if (!hashedPassword.startsWith('$argon2')) {
     return false;
   }
 
@@ -144,8 +144,8 @@ export async function verifyPassword(
     return await verify(hashedPassword, password);
   } catch (error) {
     // Log para debugging (solo en desarrollo)
-    if (process.env.NODE_ENV === "development") {
-      console.error("Error en verifyPassword:", error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error en verifyPassword:', error);
     }
 
     // En caso de cualquier error, retornar false por seguridad
@@ -169,12 +169,12 @@ export async function verifyPassword(
  * ```
  */
 export function needsRehash(hashedPassword: string): boolean {
-  if (!hashedPassword || typeof hashedPassword !== "string") {
+  if (!hashedPassword || typeof hashedPassword !== 'string') {
     return true;
   }
 
   // Verificar si es un hash válido de Argon2
-  if (!hashedPassword.startsWith("$argon2")) {
+  if (!hashedPassword.startsWith('$argon2')) {
     return true;
   }
 
@@ -188,7 +188,7 @@ export function needsRehash(hashedPassword: string): boolean {
     return !hashedPassword.includes(expectedParams);
   } catch (error) {
     // En caso de error, asumir que necesita rehash por seguridad
-    console.error("Error en needsRehash:", error);
+    console.error('Error en needsRehash:', error);
     // No exponer detalles del error al cliente
     return true;
   }
@@ -202,10 +202,10 @@ export function needsRehash(hashedPassword: string): boolean {
  * @returns Promise con el tiempo en milisegundos
  */
 export async function benchmarkHashing(
-  password: string = "test123456"
+  password: string = 'test123456',
 ): Promise<number> {
-  if (process.env.NODE_ENV === "production") {
-    throw new Error("Benchmark solo disponible en desarrollo");
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Benchmark solo disponible en desarrollo');
   }
 
   const startTime = performance.now();
@@ -219,8 +219,8 @@ export async function benchmarkHashing(
  * Constantes exportadas para referencia
  */
 export const HASH_INFO = {
-  algorithm: "Argon2id",
-  version: "1.3",
+  algorithm: 'Argon2id',
+  version: '1.3',
   minPasswordLength: 8,
   maxPasswordLength: 128,
   saltLength: 16,
