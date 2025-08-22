@@ -79,7 +79,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="w-60 flex flex-col items-center space-y-4 pt-8">
+            <div className="w-60 m-auto flex flex-col items-center space-y-4 pt-8">
               <p className="text-sm font-medium text-slate-400">
                 Confiado por más de 1,000 empresas
               </p>
