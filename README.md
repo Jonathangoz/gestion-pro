@@ -285,4 +285,4 @@ Si tienes problemas:
 
 ---
 
-Desarrollado con Next.js 15, React 19, y las mejores prácticas de desarrollo moderno.
+Desarrollado con Next.js 15, React 19, y las mejores prácticas de desarrollo moderno. 
