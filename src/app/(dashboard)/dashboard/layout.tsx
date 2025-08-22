@@ -1,11 +1,25 @@
-// estos datos son fake - aun falta añadir el componente real (evita errores al construir)
+import { requireAuth } from '@/lib/sessions';
+import { LogOutButton } from '@/components/login/Logout';
 
-export default function ClienteDetailPage() {
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const user = await requireAuth();
+
   return (
-    <div>
-      <h1>Detalles del Cliente</h1>
-      <p>Mostrando información para el cliente con ID</p>
-      {/* Aquí irá el contenido de tu página */}
+    <div className="min-h-screen bg-slate-900">
+      <nav className="bg-slate-800 p-4">
+        <div className="flex justify-between items-center">
+          <h1>Dashboard - {user.name}</h1>
+          <div className="flex items-center gap-4">
+            <span>Rol: {user.role}</span>
+            <LogOutButton />
+          </div>
+        </div>
+      </nav>
+      <main>{children}</main>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-// auth.config.ts - Configuración de autorización
 import type { NextAuthConfig } from 'next-auth';
 
 export const authConfig = {
@@ -14,7 +13,7 @@ export const authConfig = {
 
       if (isOnDashboard) {
         if (isLoggedIn) return true;
-        return false; // Redirige a login automáticamente
+        return false;
       }
 
       if (isOnLogin && isLoggedIn) {
@@ -23,22 +22,21 @@ export const authConfig = {
 
       return true;
     },
-    async jwt({ token, user }) {
+    async session({ session, user }) {
+      // user viene directamente de la base de datos
       if (user) {
-        token.role = user.role;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.sub!;
-        session.user.role = token.role as string;
+        session.user.id = user.id;
+        session.user.role = user.role;
+        session.user.activo = user.activo;
       }
       return session;
     },
   },
   providers: [], // Se llenan en auth.ts
+  // Cambiar a database session
   session: {
-    strategy: 'jwt',
+    strategy: 'database',
+    maxAge: 7 * 24 * 60 * 60, // 7 días
   },
+  trustHost: true, // Solo para desarrollo
 } satisfies NextAuthConfig;

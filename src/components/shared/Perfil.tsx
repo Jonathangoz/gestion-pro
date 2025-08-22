@@ -1,8 +1,8 @@
 // src/components/Perfil.tsx - componente donde muestra el nombre del usuario e icono o foto
-import { checkUserRole } from '@/lib/sessions';
+import { checkPermissions } from '@/lib/sessions';
 
 export async function ConditionalContent() {
-  const { isAdmin, user } = await checkUserRole();
+  const { isAdmin, user } = await checkPermissions();
 
   return (
     <div>

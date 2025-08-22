@@ -1,6 +1,7 @@
-// src/auth.ts
+// 3. src/auth.ts - Con PrismaAdapter
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import prisma from '@/lib/prisma';
@@ -27,6 +28,7 @@ async function getUser(correo: string) {
 }
 
 export const { auth, signIn, signOut } = NextAuth({
+  adapter: PrismaAdapter(prisma),
   ...authConfig,
   providers: [
     Credentials({
@@ -64,6 +66,7 @@ export const { auth, signIn, signOut } = NextAuth({
           name: user.name,
           email: user.correo,
           role: user.role,
+          activo: user.activo,
         };
       },
     }),

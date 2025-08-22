@@ -2,6 +2,6 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.tabSize": 2,
-  "editor.renderIndentGuides": true,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "editor.guides.indentation": true
 }
