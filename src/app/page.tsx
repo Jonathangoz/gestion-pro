@@ -1,5 +1,6 @@
 'use client';
 
+// Landing Page
 import { Button } from '@/components/ui/button';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -78,7 +79,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-col items-center space-y-4 pt-8">
+            <div className="w-60 flex flex-col items-center space-y-4 pt-8">
               <p className="text-sm font-medium text-slate-400">
                 Confiado por más de 1,000 empresas
               </p>

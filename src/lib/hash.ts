@@ -1,4 +1,4 @@
-// src/lib/hash.ts
+// src/lib/hash.ts - configuracion robusta para el hasheo de contraseñas con Argon2 (argon2id)
 import { hash, verify, argon2id, type Options } from 'argon2';
 
 /**

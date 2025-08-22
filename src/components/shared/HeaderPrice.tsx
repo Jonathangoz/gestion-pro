@@ -1,3 +1,4 @@
+// encabezado para la pagina de suscripciones
 'use client';
 
 import Link from 'next/link';
@@ -34,12 +35,6 @@ export function HeaderPrice() {
             className="pb-1 text-slate-300 transition-all duration-300 hover:border-b-2 hover:border-blue-400 hover:text-white"
           >
             Precios
-          </Link>
-          <Link
-            href="#contact"
-            className="pb-1 text-slate-300 transition-all duration-300 hover:border-b-2 hover:border-blue-400 hover:text-white"
-          >
-            Contacto
           </Link>
         </nav>
 

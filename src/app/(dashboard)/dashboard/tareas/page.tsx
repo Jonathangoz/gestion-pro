@@ -1,4 +1,4 @@
-// src/app/(dashboard)/dashboard/clientes/[clienteId]/page.tsx
+// estos datos son fake - aun falta añadir el componente real (evita errores al construir)
 
 export default function ClienteDetailPage() {
   return (

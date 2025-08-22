@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import {
-  CheckIcon,
   XMarkIcon,
   StarIcon,
   BuildingOfficeIcon,
@@ -199,7 +198,7 @@ export function SubscriptionSection() {
 
           {/* Pricing Cards */}
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-6">
-            {subscriptionPlans.map((plan, index) => (
+            {subscriptionPlans.map((plan) => (
               <div
                 key={plan.name}
                 className={`group relative rounded-xl border p-8 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
