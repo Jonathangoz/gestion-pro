@@ -16,7 +16,10 @@ import { Label } from '@/components/ui/label';
 import { Autenticacion } from '@/actions/auth';
 
 export function LoginForm() {
-  const [errorMessage, dispatch, isPending] = useActionState(Autenticacion, undefined);
+  const [errorMessage, dispatch, isPending] = useActionState(
+    Autenticacion,
+    undefined,
+  );
 
   return (
     <Card className="hover:shadow-3xl mx-auto w-full max-w-sm border border-slate-700/50 bg-slate-800/80 text-slate-50 shadow-2xl backdrop-blur-sm transition-all duration-300">

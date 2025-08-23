@@ -32,7 +32,7 @@ async function main() {
 
     // Crear usuarios usando transacciones para mejor consistencia
     console.log('👥 Creando usuarios...');
-    
+
     const usuarioAdmin = await prisma.usuario.upsert({
       where: { correo: 'admin@gestion.com' },
       update: {},
@@ -94,7 +94,7 @@ async function main() {
 
     // Crear tarea
     console.log('📋 Creando tarea...');
-    
+
     // Crear fecha límite más robusta
     const fechaLimite = new Date();
     fechaLimite.setMonth(fechaLimite.getMonth() + 1); // 1 mes desde hoy
@@ -103,7 +103,8 @@ async function main() {
     const tareaImportante = await prisma.tarea.create({
       data: {
         titulo: 'Crear factura para el Cliente 001',
-        descripcion: 'Se requiere todos sus datos actualizados, si no está creado, crearlo',
+        descripcion:
+          'Se requiere todos sus datos actualizados, si no está creado, crearlo',
         estado: EstadoTareas.PENDIENTE,
         fechaLimite: fechaLimite,
         asignadoAId: usuarioTrabajador.id,
@@ -114,11 +115,11 @@ async function main() {
 
     // Crear facturas con fechas más dinámicas
     console.log('🧾 Creando facturas...');
-    
+
     // Fechas para facturas
     const fechaVencimientoCliente = new Date();
     fechaVencimientoCliente.setDate(fechaVencimientoCliente.getDate() + 30); // 30 días
-    
+
     const fechaVencimientoProveedor = new Date();
     fechaVencimientoProveedor.setDate(fechaVencimientoProveedor.getDate() + 15); // 15 días
 
@@ -179,7 +180,7 @@ async function main() {
     });
 
     console.log('✅ Seed exitoso. Base de datos poblada con datos de prueba.');
-    
+
     // Resumen de datos creados
     console.log('\n📊 RESUMEN DE DATOS CREADOS:');
     console.log('=====================================');
@@ -187,38 +188,47 @@ async function main() {
     console.log(`   - Admin: ${usuarioAdmin.correo}`);
     console.log(`   - Trabajador 1: ${usuarioTrabajador.correo}`);
     console.log(`   - Trabajador 2: ${usuarioTrabajador2.correo}`);
-    
+
     console.log('\n🏢 Clientes:');
     console.log(`   - ${clienteEmpresa.name} (${clienteEmpresa.correo})`);
-    
+
     console.log('\n🏭 Proveedores:');
-    console.log(`   - ${proveedorServicios.name} (${proveedorServicios.correo})`);
-    
+    console.log(
+      `   - ${proveedorServicios.name} (${proveedorServicios.correo})`,
+    );
+
     console.log('\n📋 Tareas:');
     console.log(`   - ${tareaImportante.titulo} (${tareaImportante.estado})`);
     console.log(`   - ${tareaCompletada.titulo} (${tareaCompletada.estado})`);
-    
+
     console.log('\n🧾 Facturas:');
-    console.log(`   - Cliente: ${facturaCliente.numFactura} (${facturaCliente.estado})`);
-    console.log(`   - Proveedor: ${facturaProveedor.numFactura} (${facturaProveedor.estado})`);
-    
+    console.log(
+      `   - Cliente: ${facturaCliente.numFactura} (${facturaCliente.estado})`,
+    );
+    console.log(
+      `   - Proveedor: ${facturaProveedor.numFactura} (${facturaProveedor.estado})`,
+    );
+
     console.log('\n🔐 Credenciales de prueba:');
     console.log('   Admin: admin@gestion.com / passwordAdmin123');
-    console.log('   Trabajador 1: juan.perez@gestion.com / passwordTrabajador123');
-    console.log('   Trabajador 2: maria.gonzalez@gestion.com / passwordTrabajador456');
-    
-    console.log('\n✅ Seed completado exitosamente!');
+    console.log(
+      '   Trabajador 1: juan.perez@gestion.com / passwordTrabajador123',
+    );
+    console.log(
+      '   Trabajador 2: maria.gonzalez@gestion.com / passwordTrabajador456',
+    );
 
+    console.log('\n✅ Seed completado exitosamente!');
   } catch (error) {
     console.error('❌ Error durante el seed:', error);
-    
+
     if (error instanceof Error) {
       console.error('Mensaje:', error.message);
       if (error.stack) {
         console.error('Stack trace:', error.stack);
       }
     }
-    
+
     throw error;
   }
 }

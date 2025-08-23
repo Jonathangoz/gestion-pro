@@ -13,9 +13,9 @@
 - **Runtime:** Node.js 22+
 - **HASH PASSWORD:** Argon2 (argon2id - hasheo mas robusto y seguro)
 - **NEXTAUTH V5:** Autenticacion - Autorizacion - Validacion, mas seguro y robusto:
-    * Session-based authentication con base de datos
-    * Server Actions para verificación de sesión
-    * Middleware para protección de rutas
+  - Session-based authentication con base de datos
+  - Server Actions para verificación de sesión
+  - Middleware para protección de rutas
 
 ## Características Principales
 
@@ -74,6 +74,7 @@ NODE_ENV=development
 ```
 
 **Generar AUTH_SECRET:**
+
 - Visita: https://generate-secret.vercel.app/32
 - Copia la clave generada y pégala en `AUTH_SECRET`
 
@@ -118,6 +119,7 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 ## Scripts Disponibles
 
 ### Desarrollo
+
 - `pnpm dev` - Inicia servidor de desarrollo con Turbopack
 - `pnpm build` - Construye la aplicación para producción
 - `pnpm start` - Inicia el servidor de producción
@@ -125,16 +127,19 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 - `pnpm lint:fix` - Corrige errores de ESLint automáticamente
 
 ### Formateo de código
+
 - `pnpm format` - Formatea código con Prettier
 - `pnpm format:check` - Verifica formato sin modificar
 - `pnpm format:write` - Formatea todos los archivos soportados
 
 ### Testing
+
 - `pnpm test` - Ejecuta tests con Vitest
 - `pnpm test:watch` - Ejecuta tests en modo watch
 - `pnpm test:coverage` - Genera reporte de cobertura
 
 ### Base de datos (Prisma)
+
 - `pnpm prisma:generate` - Genera cliente de Prisma
 - `pnpm prisma:studio` - Abre Prisma Studio (interfaz visual)
 - `pnpm prisma:migrate:dev` - Crea y aplica nueva migración
@@ -193,11 +198,13 @@ gestion-pro/
 Después de ejecutar `pnpm db:seed`, puedes usar estas credenciales:
 
 ### Usuarios de prueba:
+
 - **Admin:** `admin@gestion.com` / `passwordAdmin123`
 - **Trabajador 1:** `juan.perez@gestion.com` / `passwordTrabajador123`
 - **Trabajador 2:** `maria.gonzalez@gestion.com` / `passwordTrabajador456`
 
 ### Datos incluidos:
+
 - 3 usuarios con diferentes roles
 - 1 cliente y 1 proveedor
 - 2 tareas (pendiente y completada)
@@ -226,17 +233,20 @@ Después de ejecutar `pnpm db:seed`, puedes usar estas credenciales:
 ## Solución de Problemas
 
 ### Error `UntrustedHost` en localhost
+
 ```env
 # Agregar a .env.local
 AUTH_TRUST_HOST=true
 ```
 
 ### Error de conexión a base de datos
+
 - Verifica que la `DATABASE_URL` sea correcta
 - Asegúrate de que la base de datos esté accesible
 - Para Neon, verifica que incluyas `?sslmode=require`
 
 ### Error al ejecutar seed
+
 ```bash
 # Regenerar cliente y aplicar migraciones
 pnpm prisma:generate
@@ -285,4 +295,4 @@ Si tienes problemas:
 
 ---
 
-Desarrollado con Next.js 15, React 19, y las mejores prácticas de desarrollo moderno. 
+Desarrollado con Next.js 15, React 19, y las mejores prácticas de desarrollo moderno.

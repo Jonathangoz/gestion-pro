@@ -4,11 +4,23 @@
 import { SignOut } from '@/actions/auth';
 import { Button } from '@/components/ui/button';
 
-export function LogOutButton() {
+// Asegúrate de que tu LogOutButton acepte className y children
+interface LogOutButtonProps {
+  className?: string;
+  children?: React.ReactNode;
+  title?: string;
+}
+
+export function LogOutButton({
+  className,
+  children,
+  title,
+  ...props
+}: LogOutButtonProps) {
   return (
     <form action={SignOut}>
-      <Button type="submit" variant="ghost" className="w-full justify-start">
-        Cerrar Sesión
+      <Button className={className} title={title} {...props}>
+        {children || 'Cerrar Sesión'}
       </Button>
     </form>
   );
