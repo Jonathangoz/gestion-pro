@@ -2,7 +2,7 @@
 
 **Plataforma integral de gestión empresarial** con dashboard avanzado, sistema de facturación, gestión de usuarios con roles personalizables, tareas independientes y reportes detallados. Interfaz moderna con tema oscuro profesional. **AUN EN DESARROLLO**
 
-## Visializar Aplicativo: User:  admin@gestion.com, Pass: passwordAdmin123
+## Visializar Aplicativo: User: admin@gestion.com, Pass: passwordAdmin123
 
 ## Stack Tecnológico
 

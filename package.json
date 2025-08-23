@@ -85,12 +85,10 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@heroui/shared-utils",
-      "@parcel/watcher",
-      "@prisma/engines",
+      "@prisma/client",
       "@tailwindcss/oxide",
       "argon2",
-      "prisma",
+      "esbuild",
       "sharp",
       "unrs-resolver"
     ]
