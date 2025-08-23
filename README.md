@@ -178,16 +178,19 @@ pnpm prisma:studio
 ```
 gestion-pro/
 ├── prisma/
-│   ├── schema.prisma      # Esquema de base de datos
-│   ├── seed.ts           # Datos de prueba
-│   └── migrations/       # Migraciones SQL
+│   ├── schema.prisma    # Esquema de base de datos
+│   ├── seed.ts          # Datos de prueba
+│   └── migrations/      # Migraciones SQL
 ├── src/
+│   ├── actions/         # Logica de Negocios (PrismaORM)
 │   ├── app/             # App Router (Next.js 15)
 │   ├── components/      # Componentes React
-│   ├── lib/            # Utilidades y configuraciones
-│   └── middleware.ts   # Middleware de autenticación
-├── .env.local          # Variables de entorno (crear manualmente)
-└── package.json        # Dependencias y scripts
+│   ├── lib/             # Utilidades y configuraciones
+│   ├── auth.config.ts   # configuracion de NextAuth V5
+│   ├── auth             # autenticacionde credenciales tambien OAuth
+│   └── middleware.ts    # Middleware de autenticación
+├── .env.local           # Variables de entorno (crear manualmente)
+└── package.json         # Dependencias y scripts
 ```
 
 ## Datos de Prueba
