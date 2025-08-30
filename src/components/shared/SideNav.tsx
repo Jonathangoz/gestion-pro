@@ -30,13 +30,13 @@ const links = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Facturas',
-    href: '/dashboard/invoices',
+    href: '/dashboard/facturas',
     icon: DocumentCurrencyDollarIcon,
   },
-  { name: 'Usuarios', href: '/dashboard/users', icon: UserGroupIcon },
+  { name: 'Usuarios', href: '/dashboard/usuarios', icon: UserGroupIcon },
   {
     name: 'Gestor de Tareas',
-    href: '/dashboard/tasks',
+    href: '/dashboard/tareas',
     icon: ClipboardDocumentCheckIcon,
   },
   { name: 'Reportes', href: '/dashboard/reports', icon: ChartBarSquareIcon },

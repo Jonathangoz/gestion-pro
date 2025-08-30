@@ -2,6 +2,7 @@
 'use client';
 
 import { Suspense } from 'react';
+import { Button } from '../ui/button';
 import {
   ChartBarIcon,
   CurrencyDollarIcon,
@@ -164,12 +165,12 @@ function QuickActions() {
       </h3>
       <div className="grid grid-cols-2 gap-3">
         {actions.map((action) => (
-          <button
+          <Button
             key={action.name}
             className={`relative rounded-lg bg-gradient-to-r p-4 text-left transition-all duration-300 hover:scale-105 hover:shadow-lg ${action.color} font-medium text-white`}
           >
             <span className="relative z-10 text-sm">{action.name}</span>
-          </button>
+          </Button>
         ))}
       </div>
     </div>
